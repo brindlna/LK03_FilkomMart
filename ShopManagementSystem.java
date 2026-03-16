@@ -17,24 +17,35 @@ public class ShopManagementSystem {
         }
 
         Transaction trx1 = new Transaction("TRX-001");
-        trx1.addItem(catalog[0], 2); 
-        trx1.addItem(catalog[3], 1); 
+        trx1.addItem(catalog[0], 2);
+        trx1.addItem(catalog[3], 1);
         double total1 = trx1.processSale();
 
         Transaction trx2 = new Transaction("TRX-002");
-        trx2.addItem(catalog[4], 2); 
-        trx2.addItem(catalog[5], 1); 
+        trx2.addItem(catalog[4], 2);
+        trx2.addItem(catalog[5], 1);
         double total2 = trx2.processSale();
 
         Transaction trx3 = new Transaction("TRX-003");
-        trx3.addItem(catalog[0], 1); 
-        trx3.addItem(catalog[2], 1); 
+        trx3.addItem(catalog[0], 1);
+        trx3.addItem(catalog[2], 1);
         double total3 = trx3.processSale();
+
+        laporanPenjualanHarian(total1, total2, total3);
+    }
+
+    public static void laporanPenjualanHarian(double... totals) {
+        double grandTotal = 0;
+
+        for (double total : totals) {
+            grandTotal += total;
+        }
 
         System.out.println("==============================================");
         System.out.println("          LAPORAN PENJUALAN HARIAN");
         System.out.println("==============================================");
-        System.out.printf("Total Pendapatan      : Rp%,15.2f\n", (total1 + total2));
+        System.out.printf("Jumlah Transaksi      : %d transaksi\n", totals.length);
+        System.out.printf("Total Pendapatan      : Rp%,15.2f\n", grandTotal);
         System.out.println("Status                : CLOSED");
         System.out.println("==============================================");
     }
