@@ -47,6 +47,11 @@ class FoodProduct extends Product {
     public double calculateDiscount() {
         return (getStockQuantity() > 10) ? getPrice() * 0.10 : 0;
     }
+
+    @Override
+    public String getProductInfo() {
+        return super.getProductInfo() + " | Exp: " + expiryDate;
+    }
 }
 
 class ElectronicProduct extends Product {
@@ -62,6 +67,11 @@ class ElectronicProduct extends Product {
         double discount = getPrice() * 0.05; 
         if (getPrice() > 500000) discount += getPrice() * 0.02; 
         return discount;
+    }
+
+    @Override
+    public String getProductInfo() {
+        return super.getProductInfo() + " | Garansi: " + warrantyPeriod;
     }
 }
 
@@ -84,6 +94,6 @@ class ClothingProduct extends Product {
 
     @Override
     public String getProductInfo() {
-        return super.getProductInfo() + " | Size: " + size;
+        return super.getProductInfo() + " | Size: " + size + " | Brand: " + brand;
     }
 }

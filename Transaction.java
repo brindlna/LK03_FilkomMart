@@ -8,6 +8,7 @@ public class Transaction {
 
     public Transaction(String transactionId) {
         this.transactionId = transactionId;
+        System.out.println("\n[INFO] Transaksi dengan id " + transactionId + " berhasil dibuat.");
     }
 
     public void addItem(Product item) {
